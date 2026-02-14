@@ -8,8 +8,10 @@ router.use('/', require('./swagger'));
 //   res.send('Welcome to my personal project for week 3-4 of CSE341!');
 // });
 
-router.use('/carbrands', require('./carbrands'));
-router.use('/country', require('./country'));
+router.use('/african', require('./african'));
+router.use('/asian', require('./asian'));
+router.use('/western', require('./western'));
+router.use('/other', require('./other'));
 
 router.get('/login', passport.authenticate('github'), (req, res) => {});
 

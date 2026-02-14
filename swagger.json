@@ -41,10 +41,10 @@
         }
       }
     },
-    "/carbrands/": {
+    "/african/": {
       "get": {
         "tags": [
-          "Carbrands"
+          "african"
         ],
         "description": "",
         "produces": [
@@ -54,14 +54,14 @@
           "200": {
             "description": "OK"
           },
-          "401": {
-            "description": "Unauthorized"
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
         "tags": [
-          "Carbrands"
+          "african"
         ],
         "description": "",
         "parameters": [
@@ -71,16 +71,25 @@
             "schema": {
               "type": "object",
               "properties": {
-                "carModel": {
+                "recipeName": {
                   "example": "any"
                 },
-                "productionYear": {
+                "ingredients": {
                   "example": "any"
                 },
-                "color": {
+                "instructions": {
                   "example": "any"
                 },
-                "manufacturer": {
+                "nutrition": {
+                  "example": "any"
+                },
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
                   "example": "any"
                 },
                 "imageUrl": {
@@ -106,10 +115,10 @@
         }
       }
     },
-    "/carbrands/{id}": {
+    "/african/{id}": {
       "get": {
         "tags": [
-          "Carbrands"
+          "african"
         ],
         "description": "",
         "produces": [
@@ -126,12 +135,24 @@
         "responses": {
           "200": {
             "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
         "tags": [
-          "Carbrands"
+          "african"
         ],
         "description": "",
         "parameters": [
@@ -147,16 +168,133 @@
             "schema": {
               "type": "object",
               "properties": {
-                "carModel": {
+                "recipeName": {
                   "example": "any"
                 },
-                "productionYear": {
+                "ingredients": {
                   "example": "any"
                 },
-                "color": {
+                "instructions": {
                   "example": "any"
                 },
-                "manufacturer": {
+                "nutrition": {
+                  "example": "any"
+                },
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "imageUrl": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "african"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/asian/": {
+      "get": {
+        "tags": [
+          "asian"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "asian"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recipeName": {
+                  "example": "any"
+                },
+                "ingredients": {
+                  "example": "any"
+                },
+                "instructions": {
+                  "example": "any"
+                },
+                "nutrition": {
+                  "example": "any"
+                },
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
                   "example": "any"
                 },
                 "imageUrl": {
@@ -180,77 +318,23 @@
             "description": "Internal Server Error"
           }
         }
-      },
-      "delete": {
+      }
+    },
+    "/asian/{id}": {
+      "get": {
         "tags": [
-          "Carbrands"
+          "asian"
         ],
         "description": "",
+        "produces": [
+          "application/json"
+        ],
         "parameters": [
           {
             "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
-          },
-          "500": {
-            "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/country/": {
-      "get": {
-        "tags": [
-          "Country"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      },
-      "post": {
-        "tags": [
-          "Country"
-        ],
-        "description": "",
-        "parameters": [
-          {
-            "name": "body",
-            "in": "body",
-            "schema": {
-              "type": "object",
-              "properties": {
-                "countryName": {
-                  "example": "any"
-                },
-                "capital": {
-                  "example": "any"
-                },
-                "population": {
-                  "example": "any"
-                },
-                "area": {
-                  "example": "any"
-                },
-                "flagUrl": {
-                  "example": "any"
-                }
-              }
-            }
           }
         ],
         "responses": {
@@ -263,41 +347,17 @@
           "401": {
             "description": "Unauthorized"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "500": {
             "description": "Internal Server Error"
-          }
-        }
-      }
-    },
-    "/country/{id}": {
-      "get": {
-        "tags": [
-          "Country"
-        ],
-        "description": "",
-        "produces": [
-          "application/json"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "type": "string"
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          },
-          "401": {
-            "description": "Unauthorized"
           }
         }
       },
       "put": {
         "tags": [
-          "Country"
+          "asian"
         ],
         "description": "",
         "parameters": [
@@ -313,19 +373,136 @@
             "schema": {
               "type": "object",
               "properties": {
-                "countryName": {
+                "recipeName": {
                   "example": "any"
                 },
-                "capital": {
+                "ingredients": {
                   "example": "any"
                 },
-                "population": {
+                "instructions": {
                   "example": "any"
                 },
-                "area": {
+                "nutrition": {
                   "example": "any"
                 },
-                "flagUrl": {
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "imageUrl": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "asian"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/western/": {
+      "get": {
+        "tags": [
+          "western"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "western"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recipeName": {
+                  "example": "any"
+                },
+                "ingredients": {
+                  "example": "any"
+                },
+                "instructions": {
+                  "example": "any"
+                },
+                "nutrition": {
+                  "example": "any"
+                },
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "imageUrl": {
                   "example": "any"
                 }
               }
@@ -346,10 +523,110 @@
             "description": "Internal Server Error"
           }
         }
+      }
+    },
+    "/western/{id}": {
+      "get": {
+        "tags": [
+          "western"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "western"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recipeName": {
+                  "example": "any"
+                },
+                "ingredients": {
+                  "example": "any"
+                },
+                "instructions": {
+                  "example": "any"
+                },
+                "nutrition": {
+                  "example": "any"
+                },
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "imageUrl": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
       },
       "delete": {
         "tags": [
-          "Country"
+          "western"
         ],
         "description": "",
         "parameters": [
@@ -364,8 +641,219 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/other/": {
+      "get": {
+        "tags": [
+          "other"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "other"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recipeName": {
+                  "example": "any"
+                },
+                "ingredients": {
+                  "example": "any"
+                },
+                "instructions": {
+                  "example": "any"
+                },
+                "nutrition": {
+                  "example": "any"
+                },
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "imageUrl": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/other/{id}": {
+      "get": {
+        "tags": [
+          "other"
+        ],
+        "description": "",
+        "produces": [
+          "application/json"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "other"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "body",
+            "in": "body",
+            "schema": {
+              "type": "object",
+              "properties": {
+                "recipeName": {
+                  "example": "any"
+                },
+                "ingredients": {
+                  "example": "any"
+                },
+                "instructions": {
+                  "example": "any"
+                },
+                "nutrition": {
+                  "example": "any"
+                },
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "imageUrl": {
+                  "example": "any"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "other"
+        ],
+        "description": "",
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "400": {
+            "description": "Bad Request"
+          },
+          "401": {
+            "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
@@ -376,7 +864,7 @@
     "/": {
       "get": {
         "tags": [
-          "Country"
+          "other"
         ],
         "description": "",
         "produces": [
@@ -386,14 +874,14 @@
           "200": {
             "description": "OK"
           },
-          "401": {
-            "description": "Unauthorized"
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "post": {
         "tags": [
-          "Country"
+          "other"
         ],
         "description": "",
         "parameters": [
@@ -403,19 +891,28 @@
             "schema": {
               "type": "object",
               "properties": {
-                "countryName": {
+                "recipeName": {
                   "example": "any"
                 },
-                "capital": {
+                "ingredients": {
                   "example": "any"
                 },
-                "population": {
+                "instructions": {
                   "example": "any"
                 },
-                "area": {
+                "nutrition": {
                   "example": "any"
                 },
-                "flagUrl": {
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "imageUrl": {
                   "example": "any"
                 }
               }
@@ -441,7 +938,7 @@
     "/{id}": {
       "get": {
         "tags": [
-          "Country"
+          "other"
         ],
         "description": "",
         "produces": [
@@ -459,14 +956,23 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
+          },
+          "500": {
+            "description": "Internal Server Error"
           }
         }
       },
       "put": {
         "tags": [
-          "Country"
+          "other"
         ],
         "description": "",
         "parameters": [
@@ -482,19 +988,28 @@
             "schema": {
               "type": "object",
               "properties": {
-                "countryName": {
+                "recipeName": {
                   "example": "any"
                 },
-                "capital": {
+                "ingredients": {
                   "example": "any"
                 },
-                "population": {
+                "instructions": {
                   "example": "any"
                 },
-                "area": {
+                "nutrition": {
                   "example": "any"
                 },
-                "flagUrl": {
+                "cookingTime": {
+                  "example": "any"
+                },
+                "difficulty": {
+                  "example": "any"
+                },
+                "servings": {
+                  "example": "any"
+                },
+                "imageUrl": {
                   "example": "any"
                 }
               }
@@ -511,6 +1026,9 @@
           "401": {
             "description": "Unauthorized"
           },
+          "404": {
+            "description": "Not Found"
+          },
           "500": {
             "description": "Internal Server Error"
           }
@@ -518,7 +1036,7 @@
       },
       "delete": {
         "tags": [
-          "Country"
+          "other"
         ],
         "description": "",
         "parameters": [
@@ -533,8 +1051,14 @@
           "200": {
             "description": "OK"
           },
+          "400": {
+            "description": "Bad Request"
+          },
           "401": {
             "description": "Unauthorized"
+          },
+          "404": {
+            "description": "Not Found"
           },
           "500": {
             "description": "Internal Server Error"
