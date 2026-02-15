@@ -5,7 +5,7 @@ const doc = {
     title: 'My API',
     description: 'Description'
   },
-  host: 'cse341-personal-xvsu.onrender.com',
+  host: 'dishdash-api-qiws.onrender.com',
   schemes: ['https']
 };
 

@@ -5,9 +5,9 @@ const recipeController = require('../controllers/western');
 const { isAuthenticated } = require('../middleware/authenticate');
 
 router.get('/', recipeController.getAllData);
-router.get('/:id', isAuthenticated, recipeController.getData);
-router.post('/', isAuthenticated, recipeController.createData);
-router.put('/:id', isAuthenticated, recipeController.updateData);
-router.delete('/:id', isAuthenticated, recipeController.deleteData);
+router.get('/:id', recipeController.getData);
+router.post('/', recipeController.createData);
+router.put('/:id', recipeController.updateData);
+router.delete('/:id', recipeController.deleteData);
 
 module.exports = router;

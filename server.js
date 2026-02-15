@@ -46,7 +46,7 @@ passport.use(
     {
       clientID: process.env.GITHUB_CLIENT_ID,
       clientSecret: process.env.GITHUB_CLIENT_SECRET,
-      callbackURL: "/auth/github/callback",
+      callbackURL: process.env.CALLBACK_URL || "/auth/github/callback",
     },
     function (accessToken, refreshToken, profile, done) {
       // User.findOrCreate({ githubId: profile.id }, function (err, user){

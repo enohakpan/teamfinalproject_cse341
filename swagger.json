@@ -5,7 +5,7 @@
     "description": "Description",
     "version": "1.0.0"
   },
-  "host": "cse341-personal-xvsu.onrender.com",
+  "host": "dishdash-api-qiws.onrender.com",
   "basePath": "/",
   "schemes": [
     "https"
