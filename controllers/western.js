@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 const getAllData = async (req, res, next) => {
   //#swagger.tags = ['western']
   try {
-    const result = await mongodb.getDb().db('cse341_personal').collection('western').find();
+    const result = await mongodb.getDb().db('team_food_API').collection('western').find();
     const lists = await result.toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
@@ -21,7 +21,7 @@ const getData = async (req, res) => {
     }
     
     const id = new ObjectId(req.params.id);
-    const result = await mongodb.getDb().db('cse341_personal').collection('western').find({ _id: id });
+    const result = await mongodb.getDb().db('team_food_API').collection('western').find({ _id: id });
     const lists = await result.toArray();
     
     if (!lists || lists.length === 0) {
@@ -39,7 +39,14 @@ const createData = async (req, res, next) => {
   //#swagger.tags = ['western']
   try {
     // Data validation
+    console.log('req.body:', JSON.stringify(req.body, null, 2));
+    console.log('req.body.ingredients:', req.body.ingredients);
+    console.log('typeof ingredients:', typeof req.body.ingredients);
+    
     const { recipeName, ingredients, instructions, nutrition, cookingTime, difficulty, servings, imageUrl } = req.body;
+    
+    console.log('After destructuring - ingredients:', ingredients);
+    console.log('Is Array?', Array.isArray(ingredients));
     
     if (!recipeName || !ingredients || !instructions || !nutrition) {
       return res.status(400).json({ error: 'Missing required fields: recipeName, ingredients, instructions, nutrition' });
@@ -76,7 +83,7 @@ const createData = async (req, res, next) => {
       createdAt: new Date()
     };
     
-    const response = await mongodb.getDb().db('cse341_personal').collection('western').insertOne(recipe);
+    const response = await mongodb.getDb().db('team_food_API').collection('western').insertOne(recipe);
     if (response.acknowledged) {
       res.status(200).json(response);
     } else {
@@ -134,7 +141,7 @@ const updateData = async (req, res, next) => {
       updatedAt: new Date()
     };
     
-    const response = await mongodb.getDb().db('cse341_personal').collection('western').replaceOne({ _id: id }, recipe);
+    const response = await mongodb.getDb().db('team_food_API').collection('western').replaceOne({ _id: id }, recipe);
     if (response.modifiedCount > 0) {
       res.status(200).json({ message: 'Recipe updated successfully' });
     } else if (response.matchedCount === 0) {
@@ -154,7 +161,7 @@ const deleteData = async (req, res, next) => {
     }
     
     const id = new ObjectId(req.params.id);
-    const response = await mongodb.getDb().db('cse341_personal').collection('western').deleteOne({ _id: id });
+    const response = await mongodb.getDb().db('team_food_API').collection('western').deleteOne({ _id: id });
     
     if (response.deletedCount > 0) {
       res.status(200).json({ message: 'Recipe deleted successfully' });

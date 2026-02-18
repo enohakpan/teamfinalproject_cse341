@@ -4,7 +4,7 @@ const ObjectId = require('mongodb').ObjectId;
 const getAllData = async (req, res, next) => {
   //#swagger.tags = ['african']
   try {
-    const result = await mongodb.getDb().db('cse341_personal').collection('african').find();
+    const result = await mongodb.getDb().db('team_food_API').collection('african').find();
     const lists = await result.toArray();
     res.setHeader('Content-Type', 'application/json');
     res.status(200).json(lists);
@@ -21,7 +21,7 @@ const getData = async (req, res) => {
     }
     
     const id = new ObjectId(req.params.id);
-    const result = await mongodb.getDb().db('cse341_personal').collection('african').find({ _id: id });
+    const result = await mongodb.getDb().db('team_food_API').collection('african').find({ _id: id });
     const lists = await result.toArray();
     
     if (!lists || lists.length === 0) {
@@ -76,7 +76,7 @@ const createData = async (req, res, next) => {
       createdAt: new Date()
     };
     
-    const response = await mongodb.getDb().db('cse341_personal').collection('african').insertOne(recipe);
+    const response = await mongodb.getDb().db('team_food_API').collection('african').insertOne(recipe);
     if (response.acknowledged) {
       res.status(200).json(response);
     } else {
@@ -134,7 +134,7 @@ const updateData = async (req, res, next) => {
       updatedAt: new Date()
     };
     
-    const response = await mongodb.getDb().db('cse341_personal').collection('african').replaceOne({ _id: id }, recipe);
+    const response = await mongodb.getDb().db('team_food_API').collection('african').replaceOne({ _id: id }, recipe);
     if (response.modifiedCount > 0) {
       res.status(200).json({ message: 'Recipe updated successfully' });
     } else if (response.matchedCount === 0) {
@@ -155,7 +155,7 @@ const deleteData = async (req, res, next) => {
     }
     
     const id = new ObjectId(req.params.id);
-    const response = await mongodb.getDb().db('cse341_personal').collection('african').deleteOne({ _id: id });
+    const response = await mongodb.getDb().db('team_food_API').collection('african').deleteOne({ _id: id });
     
     if (response.deletedCount > 0) {
       res.status(200).json({ message: 'Recipe deleted successfully' });

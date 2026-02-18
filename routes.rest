@@ -1,2 +1,38 @@
 ### Get Professional Data
 GET http://localhost:8081/carbrands
+
+### Create Western Recipe
+POST http://localhost:8081/western
+Content-Type: application/json
+
+{
+  "recipeName": "Spaghetti Carbonara",
+  "ingredients": [
+    {
+      "name": "Pasta",
+      "amount": 400,
+      "unit": "g"
+    },
+    {
+      "name": "Eggs",
+      "amount": 4,
+      "unit": "pcs"
+    }
+  ],
+  "instructions": [
+    "Boil pasta",
+    "Mix eggs with cheese",
+    "Combine"
+  ],
+  "nutrition": {
+    "calories": 500,
+    "protein": 20,
+    "carbs": 60,
+    "fat": 15,
+    "fiber": 2
+  },
+  "cookingTime": 30,
+  "difficulty": "Medium",
+  "servings": 4,
+  "imageUrl": "https://example.com/image.jpg"
+}
