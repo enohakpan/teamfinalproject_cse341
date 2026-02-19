@@ -3,11 +3,6 @@
   "version": "1.0.0",
   "description": "this is the personal project for week 3 and 4.",
   "main": "server.js",
-  "scripts": {
-    "start": "node server.js",
-    "swagger": "node swagger.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Enoh Uwem Akpan",
   "license": "ISC",
   "dependencies": {
@@ -23,5 +18,14 @@
     "swagger": "^0.7.5",
     "swagger-autogen": "^2.23.7",
     "swagger-ui-express": "^5.0.1"
+  }
+  ,
+  "scripts": {
+    "start": "node server.js",
+    "swagger": "node swagger.js",
+    "test": "jest"
+  },
+  "devDependencies": {
+    "jest": "^29.6.1"
   }
 }
